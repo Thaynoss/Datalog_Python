@@ -1,5 +1,5 @@
 #EDB
-artists('123','KeanuReeves','americaine').
+artists('123','John','americaine').
 artists('415','MarionCotillard','francaise').
 artists('420','ArmandVerdure','francaise').
 artists('304','MatthiasSchoenaerts','belge').
