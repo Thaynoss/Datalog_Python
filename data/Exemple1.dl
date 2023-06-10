@@ -1,38 +1,19 @@
-artists(123,'KeanuReeves','americaine').
-artists(415,'MarionCotillard','francaise').
-artists(420,'ArmandVerdure','francaise').
-artists(304,'MatthiasSchoenaerts','belge').
-artists(702,'LauraAntonelli','italienne').
-artists(876,'MarcelloMastroianni','italienne').
-artists(771,'EmmaStone','americaine').
-artists(772,'RyanGosling','canadienne').
-artists(645,'AudreyHepburn','americaine').
-artists(639,'HumphreyBogart','americaine').
-artists(543,'JuliaOrmond','anglaise').
-artists(693,'HarrisonFord','americaine').
-films(1,'De rouilles et des os',867,2011,'francaise').
-films(2,'TheMatrix',876,1999,'anglaise').
-films(3,'TheMatrixReloaded',876,2003,'anglaise').
-films(4,'LaLaLand',945,2016,'anglaise').
-films(5,'Sabrina',756,1995,'anglaise').
-films(6,'Sabrina',657,1954,'anglaise').
-roles(1,415,'Stephanie',21000).
-roles(1,420,'Sam',9000).
-roles(2,123,'Neo',10500).
-roles(3,123,'Neo',20000).
-roles(2,702,'FJacques',45000).
-roles(1,304,'Alain',9000).
-roles(4,771,'Mia',100000).
-roles(4,772,'Seb',150000).
-roles(6,645,'Sabrina',34000).
-roles(6,639,'Linus',45000).
-roles(5,543,'Sabrina',67000).
-roles(5,693,'Linus',78000).
+#EDB
+artists('123','KeanuReeves','americaine').
+artists('415','MarionCotillard','francaise').
+artists('420','ArmandVerdure','francaise').
+artists('304','MatthiasSchoenaerts','belge').
+films('1','De rouilles et des os','867','2011','francaise').
+films('2','TheMatrix','876','1999','anglaise').
+roles('1','123','Stephane','acteur').
+roles('1','415','Ali','acteur').
+roles('1','304','Orso','acteur').
+roles('2','123','Neo','acteur').
+roles('2','420','Sergei','acteur').
 
-
-r(B,E) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_).
-COUNT(X) :- artists(X,_,C), (C='italienne').
-SUM(X) :- roles(_,_,_,X).
-AVG(X) :- roles(_,_,_,X).
-COUNT(X) :- artist(X,_,_), roles(_,X,_,C), (C>50000).
-COUNT(A) :- artists(A,_,_), roles(F,A,_), films(F,_,_,Y,_), (Y<2000).
+# Règles IDB
+ancestor(X, Y) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_).
+r(B,E):- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_).
+AVG(X) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_), X is AVG(Y).
+COUNT(X) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_), X is COUNT(Y).
+MAX(X) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_), X is MAX(Y).

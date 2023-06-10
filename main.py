@@ -1,4 +1,6 @@
 import re
+import sys
+
 
 EDB = [] # List of relations
 IDB = [] # List of rules
@@ -129,14 +131,27 @@ def extract_inside(inside):
 
 def is_aggregate_function(rule):
   outside, inside = extract_parts_in_rule(rule)
-  if outside == "COUNT":
+  if outside == "Count":
     return True
-  elif outside == "SUM":
+  elif outside == "Sum":
     return True
   elif outside == "AVG":
     return True
+  elif outside == "Min":
+    return True
+  elif outside == "Max":
+    return True
+  elif outside == "Concat":
+    return True
+  elif outside == "Mean":
+    return True
+  elif outside == "Tuple":
+    return True
+  elif outside == "Len":
+     return True
   else:
     return False
+  
   
 
 def split_rules(rules):
@@ -222,6 +237,22 @@ def calculate_aggregation(dictionary, key, aggregate_function):
   elif aggregate_function == "AVG":
       numeric_values = [val for val in values if isinstance(val, (int, float))]
       return sum(numeric_values) / len(numeric_values) if numeric_values else None
+  elif aggregate_function == "MAX":
+      numeric_values = [val for val in values if isinstance(val, (int, float))]
+      return max(numeric_values) if numeric_values else None
+  elif aggregate_function == "Min":
+      numeric_values = [val for val in values if isinstance(val, (int, float))]
+      return min(numeric_values) if numeric_values else None
+  elif aggregate_function == "Concat":
+      return ",".join(values)
+  elif aggregate_function == "Mean":
+      numeric_values = [val for val in values if isinstance(val, (int, float))]
+      return sum(numeric_values) / len(numeric_values) if numeric_values else None
+  elif aggregate_function == "Tuple":
+      return tuple(values)
+  elif aggregate_function == "Len":
+      return len(values)
+     
   
 
 def condition_rule(rule):
