@@ -1,0 +1,11 @@
+# EDB
+likes(john, pizza).
+likes(john, sushi).
+likes(jane, sushi).
+likes(jane, salad).
+
+# IDB
+eats(john, X) :- likes(john, X).
+eats(jane, X) :- likes(jane, X).
+eats(john, X) :- likes(john, Y), eats(Y, X).
+eats(jane, X) :- likes(jane, Y), eats(jane, Y).

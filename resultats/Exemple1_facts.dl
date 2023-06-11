@@ -10,8 +10,3 @@ roles('1','415','Ali','acteur').
 roles('1','304','Orso','acteur').
 roles('2','123','Neo','acteur').
 roles('2','420','Sergei','acteur').
-ancestor(X, Y) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_).
-r(B,E):- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_).
-AVG(X) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_), X is AVG(Y).
-COUNT(X) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_), X is COUNT(Y).
-MAX(X) :- artists(A,B,_), films(_,E,_,_,_), roles(_,A,_,_), X is MAX(Y).
