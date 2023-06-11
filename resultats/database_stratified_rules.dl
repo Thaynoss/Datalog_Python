@@ -1,0 +1,21 @@
+collegue(X, Y) :- employe(X, E), employe(Y, E), X \= Y.
+salaire_superieur(X, Y) :- employe(X, E), employe(Y, E), salaire(X, S1), salaire(Y, S2), S1 > S2.
+departement_superieur(X, Y) :- employe(X, E1), employe(Y, E2), departement(E1, D1), departement(E2, D2), D1 \= D2.
+competence_commune(X, Y) :- employe(X, E), employe(Y, E), competence(X, C), competence(Y, C), X \= Y.
+employe_senior(X) :- employe(X, _), salaire(X, S), S > 5000.
+employe_departement(X, D) :- employe(X, E), departement(E, D).
+employe_superieur(X, Y) :- employe(X, E), employe(Y, E), superieur(Y, X).
+employe_compent(X) :- employe(X, _), competence(X, _).
+employe_superieur_transitif(X, Y) :- employe_superieur(X, Y).
+employe_superieur_transitif(X, Y) :- employe_superieur(X, Z), employe_superieur_transitif(Z, Y).
+employe_salaire_total(D, Total) :- departement(D, _), employe_departement(X, D), salaire(X, S), sum(S, Total).
+competences_employe(X, Comp) :- employe(X, _), competence(X, Comp).
+competences_departement(D, Comp) :- departement(D, _), employe_departement(X, D), competences_employe(X, Comp).
+salaire_moyen(D, Avg) :- departement(D, _), employe(_, D), salaire(_, S), Avg is AVG(S).
+salaire_maximum(D, Max) :- departement(D, _), employe(_, D), salaire(_, S), Max is MAX(S).
+competences_par_employe(X, NumComp) :- employe(X, _), competence(X, _), NumComp is COUNT(competence(X, _)).
+competences_par_departement(D, NumComp) :- departement(D, _), employe(_, D), competence(_, _), NumComp is COUNT(competence(_, _)).
+salaire_moyen_par_departement(D, Avg) :- departement(D, _), employe(_, D), salaire(_, S), Avg is AVG(S).
+salaire_maximum_par_departement(D, Max) :- departement(D, _), employe(_, D), salaire(_, S), Max is MAX(S).
+competences_par_employe_par_departement(X, NumComp) :- employe(X, _), competence(X, _), NumComp is COUNT(competence(X, _)).
+competences_par_departement_par_employe(D, NumComp) :- departement(D, _), employe(_, D), competence(_, _), NumComp is COUNT(competence(_, _)).

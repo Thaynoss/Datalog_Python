@@ -81,9 +81,9 @@ class parserDatalog:
             rule = Group(head + self.ARROW + body + Optional(self.DOT))
 
             self.aggregate = Group(self.COUNT_KW | self.SUM_KW | self.AVG_KW | self.MAX_KW | self.MIN_KW | self.LEN_KW | self.MEAN_KW)
-            self.ggregate_rule = Group(self.aggregate + self.LPAREN + self.IDENT + self.COMMA + self.IDENT + self.RPAREN + self.ARROW + self.IDENT + self.LPAREN + self.IDENT + self.RPAREN + Optional(self.DOT))
+            self.agregate_rule = Group(self.aggregate + self.LPAREN + self.IDENT + self.COMMA + self.IDENT + self.RPAREN + self.ARROW + self.IDENT + self.LPAREN + self.IDENT + self.RPAREN + Optional(self.DOT))
             self.rule_expr = Forward()
-            self.rule_expr << (self.ggregate_rule | rule)
+            self.rule_expr << (self.rule | self.agregate_rule)
         except:
             pass
         return self.rule_expr.parseString(line)[0]
@@ -183,9 +183,9 @@ if __name__ == "__main__":
     fact_string = "artist(\"The Beatles\", \"Liverpool\")."
 
     fact = parser.parse_fact(fact_string)
-    #print(fact)
+    print(fact)
 
     # Analyser une règle Datalog
     rule_string = "ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y)."
     rule = parser.parse_rule(rule_string)
-    #print(rule)
+    print(rule)
