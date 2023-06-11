@@ -1,28 +1,27 @@
 EDB:
-['artists', "'123'", "'John'", "'americaine'"] .
-['artists', "'415'", "'MarionCotillard'", "'francaise'"] .
-['artists', "'420'", "'ArmandVerdure'", "'francaise'"] .
-['artists', "'304'", "'MatthiasSchoenaerts'", "'belge'"] .
-['films', "'1'", "'De rouilles et des os'", "'867'", "'2011'", "'francaise'"] .
-['films', "'2'", "'TheMatrix'", "'876'", "'1999'", "'anglaise'"] .
-['roles', "'1'", "'123'", "'Stephane'", "'acteur'"] .
-['roles', "'1'", "'415'", "'Ali'", "'acteur'"] .
-['roles', "'1'", "'304'", "'Orso'", "'acteur'"] .
-['roles', "'2'", "'123'", "'Neo'", "'acteur'"] .
-['roles', "'2'", "'420'", "'Sergei'", "'acteur'"] .
+[ParseResults(['artists', "'123'", "'John'", "'americaine'"], {}), '.']
+[ParseResults(['artists', "'415'", "'MarionCotillard'", "'francaise'"], {}), '.']
+[ParseResults(['artists', "'420'", "'ArmandVerdure'", "'francaise'"], {}), '.']
+[ParseResults(['artists', "'304'", "'MatthiasSchoenaerts'", "'belge'"], {}), '.']
+[ParseResults(['films', "'1'", "'De rouilles et des os'", "'867'", "'2011'", "'francaise'"], {}), '.']
+[ParseResults(['films', "'2'", "'TheMatrix'", "'876'", "'1999'", "'anglaise'"], {}), '.']
+[ParseResults(['roles', "'1'", "'123'", "'Stephane'", "'acteur'"], {}), '.']
+[ParseResults(['roles', "'1'", "'415'", "'Ali'", "'acteur'"], {}), '.']
+[ParseResults(['roles', "'1'", "'304'", "'Orso'", "'acteur'"], {}), '.']
+[ParseResults(['roles', "'2'", "'123'", "'Neo'", "'acteur'"], {}), '.']
+[ParseResults(['roles', "'2'", "'420'", "'Sergei'", "'acteur'"], {}), '.']
 
 IDB:
-[['ancestor', 'X', 'Y'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_', '.']]
-[['r', 'B', 'E'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_', '.']]
-[['AVG', 'X'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_']]
-[['COUNT', 'X'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_']]
-[['MAX', 'X'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_']]
+[ParseResults([ParseResults(['ancestor', 'X', 'Y'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_', '.'], {})], {})]
+[ParseResults([ParseResults(['r', 'B', 'E'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_', '.'], {})], {})]
+[ParseResults([ParseResults(['AVG', 'X'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_'], {})], {})]
+[ParseResults([ParseResults(['COUNT', 'X'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_'], {})], {})]
+[ParseResults([ParseResults(['MAX', 'X'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_'], {})], {})]
 
 IDB with aggregation:
-[['ancestor', 'X', 'Y'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_', '.']]
-[['r', 'B', 'E'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_', '.']]
-[['AVG', 'X'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_']]
-[['COUNT', 'X'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_']]
-[['MAX', 'X'], ':-', ['artists', 'A', 'B', '_'], ['films', '_', 'E', '_', '_', '_'], ['roles', '_', 'A', '_', '_']]
-
-COUNT artists:
+[ParseResults([ParseResults(['ancestor', 'X', 'Y'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_', '.'], {})], {})]
+[ParseResults([ParseResults(['r', 'B', 'E'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_', '.'], {})], {})]
+[ParseResults([ParseResults(['AVG', 'X'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_'], {})], {})]
+[ParseResults([ParseResults(['COUNT', 'X'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_'], {})], {})]
+[ParseResults([ParseResults(['MAX', 'X'], {}), ':-', ParseResults(['artists', 'A', 'B', '_'], {}), ParseResults(['films', '_', 'E', '_', '_', '_'], {}), ParseResults(['roles', '_', 'A', '_', '_'], {})], {})]
+COUNT artists: 0
